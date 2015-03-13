@@ -4,7 +4,7 @@ namespace app\models;
 
 class CData implements IData {
     
-    protected static function getx( $paras = null ){
+    protected static function getex( $paras = null ){
         return null;
     }
     
@@ -13,4 +13,3 @@ class CData implements IData {
     }
 }
 
-?>

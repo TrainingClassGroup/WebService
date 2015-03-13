@@ -1,8 +1,10 @@
 <?php
+if(Extension_Loaded('zlib')) Ob_Start('ob_gzhandler');
+Header("Content-type: text/html");
+
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
 /* @var $this \yii\web\View */
@@ -49,9 +51,6 @@ AppAsset::register($this);
         ?>
 
         <div class="container">
-            <?= Breadcrumbs::widget([
-                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-            ]) ?>
             <?= $content ?>
         </div>
     </div>
@@ -67,3 +66,4 @@ AppAsset::register($this);
 </body>
 </html>
 <?php $this->endPage() ?>
+<?php if(Extension_Loaded('zlib')) Ob_End_Flush(); ?>
