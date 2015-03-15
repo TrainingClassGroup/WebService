@@ -13,19 +13,26 @@ LEFT JOIN (
 	tab_training_class_relation_between_class_name_and_course nrc
 	LEFT JOIN tab_training_class_course cc ON cc."id" = nrc.course_id
 ) ON cn."id" = nrc.class_name_id ORDER BY cn."id", cc."id"';
-        
+
         $command = CDB::getConnection()->createCommand( $sql );
         $result = $command->queryAll();
         $data = [];
-        
+
         $rownum = count( $result );
         for($r = 0; $r < $rownum; $r++){
             CTree::menuTree($data, '', ['id'=>$result[$r]['class_name_id'], 'menu'=>$result[$r]['class_name'], 'paras'=>'' ],
                                        ['id'=>$result[$r]['course_id'], 'menu'=>$result[$r]['course'], 'paras'=>'' ]);
         }
-        
+
+        $data = ['menus'=>$data, 'time'=>[
+        		'1'=>['menu'=>"全天", 'paras'=>'', 'sub'=>[] ],
+        		'2'=>['menu'=>"上午", 'paras'=>'', 'sub'=>[] ],
+        		'3'=>['menu'=>"下午", 'paras'=>'', 'sub'=>[] ],
+        		'4'=>['menu'=>"晚上", 'paras'=>'', 'sub'=>[] ]
+        ]];
+
         return $data;
     }
-    
-    
+
+
 }
