@@ -2,11 +2,15 @@
 
 namespace app\models;
 
-class CData_CatalogOfClassNameAndCourseAndTime extends CData {
+class CData_ClassNameAndCourseAndTime extends CData {
     /*
      * (non-PHPdoc) @see \app\models\CData::getx()
      */
     protected static function getex( $paras = null ){
+        $key=__METHOD__.":".serialize($paras);
+        $data = CSystemCache::get($key);
+        if(!is_null($data)) return $data;
+        
         $sql = 'SELECT cn."id" class_name_id, cc."id" course_id, cn.class_name,	cc.course
 FROM tab_training_class_classname cn
 LEFT JOIN (
@@ -16,8 +20,7 @@ LEFT JOIN (
 
         $command = CDB::getConnection()->createCommand( $sql );
         $result = $command->queryAll();
-        $data = [];
-
+        
         $rownum = count( $result );
         for($r = 0; $r < $rownum; $r++){
             CTree::menuTree($data, '', ['id'=>$result[$r]['class_name_id'], 'menu'=>$result[$r]['class_name'], 'paras'=>'' ],
@@ -31,6 +34,8 @@ LEFT JOIN (
         		'4'=>['menu'=>"晚上", 'paras'=>'', 'sub'=>[] ]
         ]];
 
+        CSystemCache::set($key, $data, 60*60);
+        
         return $data;
     }
 

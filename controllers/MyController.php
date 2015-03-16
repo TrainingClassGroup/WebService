@@ -45,6 +45,8 @@ class MyController extends CMyController {
 		}
 		return null;
 	}
+	
+	/* ------------------------------------------------------ */
 
 	public function actionUpdatetabledata() {
 		$data = $this->_dynamicGetData ();
@@ -88,64 +90,6 @@ class MyController extends CMyController {
 
 			echo $context;
 		}
-	}
-
-	/*-------------------------------------------------------------------*/
-
-	public function actionTreemenus() {
-		return $this->render ( 'treemenus' );
-	}
-	public function actionTrade() {
-		return $this->render ( 'trade', array('t'=>isset($_GET['t'])?$_GET['t']:"stock-buy"));
-	}
-	public function actionTrade_mutil() {
-		return $this->render ( 'trade_mutil', array('t'=>isset($_GET['t'])?$_GET['t']:"stock-buy"));
-	}
-
-	public function actionGetissuecode() {
-
-		$result=CIssueCode::get ();
-
-		$issuecode_md5=md5($result);
-		$issuecode_modified=Yii::$app->cache->get("issuecode-modified");
-
-		if(Yii::$app->cache->get("issuecode-md5")==$issuecode_md5){
-		}
-		else{
-			$issuecode_modified=gmdate ( 'D, d M Y H:i:s' );
-			Yii::$app->cache->set("issuecode-md5",$issuecode_md5);
-			Yii::$app->cache->set("issuecode-modified",$issuecode_modified);
-		}
-
-		header ( 'Content-Type: application/javascript' );
-		header ( 'Cache-Control: public');
-		header ( 'Last-Modified: ' . $issuecode_modified . ' GMT' );
-		header ( 'Expires: ' . gmdate ( 'D, d M Y H:i:s', time () + 60 * 60 * 24 * 7 ) . ' GMT' );
-		header ( 'ETag: '.$issuecode_md5);
-		header ( 'Pragma: cahce' );
-
-		echo $result;
-	}
-	public function actionQueryasset() {
-		return $this->render ( 'queryasset' );
-	}
-	public function actionWithdrawals() {
-		return $this->render ( 'withdrawals', array('t'=>isset($_GET['t'])?$_GET['t']:"stock") );
-	}
-	public function actionQuerysamedayorder() {
-		return $this->render ( 'samedayorder', array('t'=>isset($_GET['t'])?$_GET['t']:"stock")  );
-	}
-	public function actionQuerysamedayexec() {
-		return $this->render ( 'samedayexec', array('t'=>isset($_GET['t'])?$_GET['t']:"stock")  );
-	}
-	public function actionQueryposition_trade_entrust() {
-		return $this->render ( 'queryposition_trade_entrust', array('t'=>isset($_GET['t'])?$_GET['t']:"stock"));
-	}
-	public function actionQueryhistoryorder() {
-		return $this->render ( 'historyorder', array('t'=>isset($_GET['t'])?$_GET['t']:"stock")  );
-	}
-	public function actionQueryhistoryexec() {
-		return $this->render ( 'historyexec', array('t'=>isset($_GET['t'])?$_GET['t']:"stock")  );
 	}
 }
 
