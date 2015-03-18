@@ -24,13 +24,13 @@ class MyController extends CMyController {
 		try {
 			return call_user_func ( 'app\\models\\' . $data . '::get', $pars );
 		} catch ( \Exception $e ) {
-			return $e;
+			return $e;//print_r($e);
 		}
 	}
 
 	private function _dynamicGetData() {
 		if (isset ( $_POST ['data'] )) {
-			return $this->_dynamicGetDataConsole($_POST ['data'], $_POST ['paras']);
+			return $this->_dynamicGetDataConsole($_POST ['data'], isset($_POST ['paras'])?$_POST ['paras']:null);
 		}
 		return null;
 	}
@@ -38,9 +38,9 @@ class MyController extends CMyController {
 	private function _dynamicRunAction() {
 		if (isset ( $_POST ['data'] )) {
 			try {
-				return call_user_func ( 'app\\models\\' . $_POST ['data'] . '::run', $_POST ['paras'] );
+				return call_user_func ( 'app\\models\\' . $_POST ['data'] . '::run', isset($_POST ['paras'])?$_POST ['paras']:null );
 			} catch ( \Exception $e ) {
-				return $e;
+				return $e;//print_r($e);
 			}
 		}
 		return null;
@@ -52,13 +52,13 @@ class MyController extends CMyController {
 		$data = $this->_dynamicGetData ();
 		return $this->render ( 'updatetabledata', array (
 				'data' => $data,
-				'paras'=> json_encode(['data'=>$_POST ['data'], 'paras'=>$_POST ['paras']]),
+				'paras'=> json_encode(['data'=>$_POST ['data'], 'paras'=>isset($_POST ['paras'])?$_POST ['paras']:[]]),
 				'filename'=> isset($_POST ['filename'])?$_POST ['filename']:'',
 				'callback' => (isset($_POST ['callback'])?$_POST ['callback']:null)
 		) );
 	}
 
-	public function actionJsondata() {
+	public function actionData() {
 		$data = $this->_dynamicGetData ();
 		return $data;
 	}
