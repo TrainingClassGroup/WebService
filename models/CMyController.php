@@ -11,7 +11,7 @@ class CMyController extends Controller {
         );
     public function render( $view, $params = [] ){
         \Yii::$app->language = 'zh-CN';
-        
+        /*
         if( !isset( $_GET['r'] ) || (isset( $_GET['r'] ) && !in_array( $_GET['r'], CMyController::$passUrl )) ){
             if( \Yii::$app->user->isGuest ){
                 return parent::redirect( \Yii::$app->urlManager->createUrl( [
@@ -54,6 +54,7 @@ class CMyController extends Controller {
             $_SESSION['__screenlock'] = time();
             COneLogin::update( $_SESSION['__id'], $_SESSION['__screenlock'] );
         }
+        */
         //
         if( isset( $_SERVER["HTTP_X_REQUESTED_WITH"] ) && strtolower( $_SERVER["HTTP_X_REQUESTED_WITH"] ) == "xmlhttprequest" ){
             return parent::renderPartial( $view, $params );

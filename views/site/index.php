@@ -4,6 +4,7 @@ $this->title = 'My Yii Application';
 ?>
 <div class="site-index">
 
+<a href="<?php echo Yii::$app->urlManager->createUrl(['my/desc', 'fun'=>'CData_TrainingClass']); ?>">ddd</a>
 
     <div class="body-content">
 
@@ -12,7 +13,8 @@ $this->title = 'My Yii Application';
     
     <script type="text/javascript">
     $(function() {
-       
+
+    	/*
     	SafeAjax({
     		type: "POST",
 			url: "<?php echo Yii::$app->urlManager->createUrl('my/data'); ?>",
@@ -21,7 +23,7 @@ $this->title = 'My Yii Application';
 				$('.body-content').html(result);
 			}
         });
-       
+    	*/
     	/*
     	SafeAjax({
     		type: "POST",

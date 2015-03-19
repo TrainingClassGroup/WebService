@@ -4,6 +4,10 @@ namespace app\models;
 
 class CData implements IData {
     
+    public static function description(){
+        return '';
+    }
+    
     protected static function getex( $paras = null ){
         return null;
     }

@@ -3,20 +3,11 @@
 namespace app\controllers;
 
 use Yii;
-use yii\helpers\ArrayHelper;
-use yii\filters\RateLimiter;
+
 use app\models\CMyController;
 use app\models\CExportData;
 
 class MyController extends CMyController {
-	public function behaviors() {
-		return ArrayHelper::merge ( parent::behaviors (), [
-				'rateLimiter' => [
-						'class' => RateLimiter::className (),
-						'enableRateLimitHeaders' => false
-				]
-		] );
-	}
 
 	/* ------------------------------------------------------ */
 
@@ -27,12 +18,23 @@ class MyController extends CMyController {
 			return $e;//print_r($e);
 		}
 	}
+	
+	private function _dynamicGetDescription(){
+	    if (isset ( $_GET ['fun'] )) {
+    	    try {
+    			return call_user_func ( 'app\\models\\' . $_GET ['fun'] . '::description', null );
+    		} catch ( \Exception $e ) {
+    			return $e;//print_r($e);
+    		}
+	    }
+	    return [];
+	}
 
 	private function _dynamicGetData() {
 		if (isset ( $_POST ['data'] )) {
 			return $this->_dynamicGetDataConsole($_POST ['data'], isset($_POST ['paras'])?$_POST ['paras']:null);
 		}
-		return null;
+		return [];
 	}
 
 	private function _dynamicRunAction() {
@@ -43,7 +45,7 @@ class MyController extends CMyController {
 				return $e;//print_r($e);
 			}
 		}
-		return null;
+		return [];
 	}
 	
 	/* ------------------------------------------------------ */
@@ -58,6 +60,11 @@ class MyController extends CMyController {
 		) );
 	}
 
+	public function actionDesc(){
+	    $desc = $this->_dynamicGetDescription ();
+	    return $this->render ( 'desc', ['desc' => $desc] );
+	}
+	
 	public function actionData() {
 		$data = $this->_dynamicGetData ();
 		return $data;

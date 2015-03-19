@@ -3,6 +3,16 @@
 namespace app\models;
 
 class CData_TrainingClass extends CData {
+    
+    public static function description(){
+        return [['para'=>'lng','desc'=>'经度', 'isnull'=>false, 'type'=>'numeric', 'example'=>'123.417095'],
+                 ['para'=>'lat','desc'=>'纬度', 'isnull'=>false, 'type'=>'numeric', 'example'=>'41.836929'],
+                 ['para'=>'catalog','desc'=>'年级', 'isnull'=>false, 'type'=>'string', 'example'=>'高中'],
+                 ['para'=>'curriculum','desc'=>'课程', 'isnull'=>false, 'type'=>'string', 'example'=>'数学'],
+                 ['para'=>'rownum','desc'=>'行数', 'isnull'=>true, 'type'=>'numeric', 'example'=>'10'],
+                 ['para'=>'page','desc'=>'页数', 'isnull'=>true, 'type'=>'numeric', 'example'=>'0'],
+               ];
+    }
     /*
      * (non-PHPdoc) @see \app\models\CData::getx()
      */
