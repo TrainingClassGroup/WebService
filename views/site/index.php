@@ -5,6 +5,8 @@ $this->title = 'My Yii Application';
 <div class="site-index">
 
 <a href="<?php echo Yii::$app->urlManager->createUrl(['my/desc', 'fun'=>'CData_TrainingClass']); ?>">ddd</a>
+<p></p>
+<a href="<?php echo Yii::$app->urlManager->createUrl(['my/about']); ?>">about</a>
 
     <div class="body-content">
 

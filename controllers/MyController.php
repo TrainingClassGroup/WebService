@@ -9,8 +9,6 @@ use app\models\CExportData;
 
 class MyController extends CMyController {
 
-	/* ------------------------------------------------------ */
-
 	private function _dynamicGetDataConsole($data, $pars) {
 		try {
 			return call_user_func ( 'app\\models\\' . $data . '::get', $pars );
@@ -62,7 +60,7 @@ class MyController extends CMyController {
 
 	public function actionDesc(){
 	    $desc = $this->_dynamicGetDescription ();
-	    return $this->render ( 'desc', ['desc' => $desc] );
+	    return $this->render ( 'desc', ['fun'=>$_GET ['fun'], 'desc' => $desc] );
 	}
 	
 	public function actionData() {
@@ -97,6 +95,11 @@ class MyController extends CMyController {
 
 			echo $context;
 		}
+	}
+	
+	public function actionAbout()
+	{
+	    return $this->render('about');
 	}
 }
 

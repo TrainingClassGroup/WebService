@@ -1,0 +1,53 @@
+.myCode{
+	
+}
+
+.myCode .myDescription{
+	font-size: x-large;
+	color: #CF4E00;
+}
+
+.myCode .myDescription-sub{
+	font-size: larger;
+	color: #CF4E00;
+}
+
+.myCode .myLineno{
+	
+}
+
+.myCodeShow .myCode {
+	position: relative;
+	float: left;
+	width:100%;
+}
+
+.myCodeShow .myCodeText{
+	position: relative;
+	float: left;
+	width:100%;
+	height:100%;
+	display:none;
+}
+
+.myCode .myCodes{
+	margin-left: 20px;
+	color: #000FFF;
+}
+
+.myCode .myFunction{
+	font-size: large;
+}
+
+.myCode .myPara{
+	font-size: small;
+}
+
+.myCode .myComment{
+	font-size: small;
+	color: #598157;
+}
+
+.myCode .myComment .myImportant{
+	color: #476C48;
+}
