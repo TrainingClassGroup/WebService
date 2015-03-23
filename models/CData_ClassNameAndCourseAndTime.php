@@ -3,6 +3,12 @@
 namespace app\models;
 
 class CData_ClassNameAndCourseAndTime extends CData {
+    
+    public static function description(){
+        return [
+                'description' => '获取筛选条件。',
+                'paras' => [ ] ];
+    }
     /*
      * (non-PHPdoc) @see \app\models\CData::getx()
      */

@@ -1,12 +1,38 @@
 <?php
 /* @var $this yii\web\View */
-$this->title = 'My Yii Application';
+$this->title = 'TC';
 ?>
 <div class="site-index">
 
-<a href="<?php echo Yii::$app->urlManager->createUrl(['my/desc', 'fun'=>'CData_TrainingClass']); ?>">ddd</a>
-<p></p>
-<a href="<?php echo Yii::$app->urlManager->createUrl(['my/about']); ?>">about</a>
+<?php 
+function tree($directory){
+    $mydir = dir($directory);
+    while($file = $mydir->read()){
+        if((is_dir("$directory/$file")) AND ($file!=".") AND ($file!="..")){
+            tree("$directory/$file");
+        }
+        else{
+            if(preg_match("/CData_(.*)\.php/i", $file, $matches)){
+                require_once $directory . 'CData_'.$matches[1].'.php';
+                $name="";
+                try {
+                    $name = call_user_func ( 'app\\models\\' . 'CData_'.$matches[1] . '::description', null )['description'];
+                } catch ( \Exception $e ) {
+                }
+?>
+                <li><a href="<?php echo Yii::$app->urlManager->createUrl(['my/desc', 'fun'=>'CData_'.$matches[1]]); ?>"><?= 'CData_'.$matches[1]?>&nbsp;&nbsp;&nbsp;&nbsp;//<?= $name?></a></li><br>
+<?php 
+            }
+        }
+    }
+   	$mydir->close();
+}
+echo "<ul>\n";
+tree(dirname ( __FILE__ ) . '/../../models/');
+echo "</ul>\n";
+?>
+
+
 
     <div class="body-content">
 
