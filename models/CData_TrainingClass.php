@@ -56,7 +56,7 @@ class CData_TrainingClass extends CData {
                                                     'curriculum' => $paras['curriculum'] ] );
         $data = CSystemCache::get( $key );
         if( !is_null( $data ) ) return $data;
-        
+
         $sql = "SELECT *
 FROM
 	(
@@ -68,10 +68,10 @@ FROM
 	) cc
 ORDER BY cc.distance
 LIMIT :rownum OFFSET :page";
-        
+
         if( !isset( $paras['rownum'] ) || is_null( $paras['rownum'] ) ) $paras['rownum'] = 10;
         if( !isset( $paras['page'] ) || is_null( $paras['page'] ) ) $paras['page'] = 0;
-        
+
         $command = CDB::getConnection()->createCommand( $sql );
         $command->bindParam( ':lng', $paras['lng'], \PDO::PARAM_STR ); // 经度
         $command->bindParam( ':lat', $paras['lat'], \PDO::PARAM_STR ); // 纬度
@@ -79,11 +79,16 @@ LIMIT :rownum OFFSET :page";
         $command->bindParam( ':curriculum', $paras['curriculum'], \PDO::PARAM_STR ); // 课程
         $command->bindParam( ':rownum', $paras['rownum'], \PDO::PARAM_INT ); // 行数
         $command->bindParam( ':page', $paras['page'], \PDO::PARAM_INT ); // 页数
-        
+
         $data = $command->queryAll();
-        
+
+        $len=count($data);
+        for($i=0;$i<$len;$i++){
+        	$data[$i]['index'] = $paras['page'] * $paras['rownum'] + $i;
+        }
+
         CSystemCache::set( $key, $data, 10 * 60 );
-        
+
         return $data;
     }
 }

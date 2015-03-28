@@ -2,21 +2,24 @@
 
 namespace app\models;
 
+use yii\base\Object;
 class CData implements IData {
-    
+
     public static function description(){
         return '';
     }
-    
+
     protected static function getex( $paras = null ){
         return null;
     }
-    
+
     public static function get( $paras = null ){
         if(is_array($paras)){
             if(isset($paras['type'])){
                 if($paras['type']=='json'){
-                    return json_encode(static::getex($paras), JSON_UNESCAPED_UNICODE);
+                	$data = static::getex($paras);
+                	$result = json_encode((Object)$data, JSON_UNESCAPED_UNICODE);
+                    return $result;
                 }
                 else if($paras['type']=='xml'){
                     $array2xml = new CArray2xml();
@@ -29,7 +32,7 @@ class CData implements IData {
             }
         }
         return json_encode(static::getex($paras), JSON_UNESCAPED_UNICODE);
-        
+
     }
 }
 

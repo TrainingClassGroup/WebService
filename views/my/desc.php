@@ -1,23 +1,23 @@
 <div>
     <pre class='myCode'>
     <?php
-        $info = "<span class='myDescription'>".$desc['description']."</span>";   
+        $info = "<span class='myDescription'>".$desc['description']."</span>";
         echo $info;
     ?>
     </pre>
-    <!-- 
+    <!--
     <div class='myCodeShow'>
         <pre class='myCode' onclick='copyCode($(this))'>
         <?php
             $lineno = 1;
             $info = "<span class='myDescription-sub'>".'&lt'.'PHP'.'&gt'."</span>\n";
             $info = $info."<span class='myLineno'>".($lineno++)."</span>"."<span class='myCodes myFunction'>".$fun."</span> ([\n";
-            $num = count($desc['paras']); 
+            $num = count($desc['paras']);
             for($i=0;$i<$num;$i++){
                 $info = $info . "<span class='myLineno'>".($lineno++)."</span>"."<span class='myCodes'><span class='myPara'>\t '".$desc['paras'][$i]['para']."' => ?, </span><span class='myComment'>/* <strong class='myImportant'>".($desc['paras'][$i]['isnull']?'（可选）':'（必填）')."</strong>; 描述: <strong class='myImportant'>".$desc['paras'][$i]['desc']."</strong>; 类型：<strong class='myImportant'>".$desc['paras'][$i]['type']."</strong>; 举例：".$desc['paras'][$i]['example']." */</span></span>\n";
             }
             $info = $info."<span class='myLineno'>".($lineno++)."</span>"."<span class='myCodes'>]);</span>";
-            
+
             echo "\n";
             echo $info;
         ?>
@@ -29,7 +29,7 @@
         <pre class='myCode' onclick='copyCode($(this))'>
         <?php
             $example_paras="";
-        
+
             $lineno = 1;
             $info = "<span class='myDescription-sub'>".'&lt'.'Javasctipt'.'&gt'."</span>\n";
             $info = $info."<span class='myLineno'>".($lineno++)."</span>"."<span class='myCodes'>$.ajax ({</span>\n";
@@ -45,7 +45,7 @@
             $info = $info."<span class='myLineno'>".($lineno++)."</span>"."<span class='myCodes'>\t success: function (result) {</span>\n";
             $info = $info."<span class='myLineno'>".($lineno++)."</span>"."<span class='myCodes'>\t }</span>\n";
             $info = $info."<span class='myLineno'>".($lineno++)."</span>"."<span class='myCodes'>});</span>";
-            
+
             echo "\n";
             echo $info;
         ?>
@@ -59,7 +59,7 @@
 
 <script type="text/javascript">
 $(function() {
-	
+
     SafeAjax({
     	type: "POST",
     	url: "<?php echo Yii::$app->urlManager->createUrl('my/data'); ?>",

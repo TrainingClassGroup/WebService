@@ -28,11 +28,14 @@ class CTree {
         }
         //
         if(!isset($_result[$menu['id']]) || !is_array($_result[$menu['id']])){
+
             $_result[$menu['id']] = ['menu'=> $menu['menu'],
                     'paras'=> $menu['paras'],
                     'sub'=>[ ]
                     ];
+
         }
+
         $_result[$menu['id']]['sub'][$submenu['id']] = ['menu'=> $submenu['menu'],
         'paras'=> $submenu['paras'],
         'sub'=> []

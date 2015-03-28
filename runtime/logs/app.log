@@ -1,0 +1,209 @@
+2015-03-15 09:14:27 [::1][-][-][error][yii\base\InvalidConfigException] exception 'yii\base\InvalidConfigException' with message 'The directory does not exist: E:/Homework/Web/htdocs/tc2/WebService/web/assets' in E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\web\AssetManager.php:175
+Stack trace:
+#0 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\Object.php(107): yii\web\AssetManager->init()
+#1 [internal function]: yii\base\Object->__construct(Array)
+#2 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\di\Container.php(366): ReflectionClass->newInstanceArgs(Array)
+#3 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\di\Container.php(151): yii\di\Container->build('yii\\web\\AssetMa...', Array, Array)
+#4 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\BaseYii.php(344): yii\di\Container->get('yii\\web\\AssetMa...', Array, Array)
+#5 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\di\ServiceLocator.php(133): yii\BaseYii::createObject(Array)
+#6 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\Application.php(600): yii\di\ServiceLocator->get('assetManager')
+#7 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\web\View.php(223): yii\base\Application->getAssetManager()
+#8 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\web\View.php(283): yii\web\View->getAssetManager()
+#9 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\web\AssetBundle.php(118): yii\web\View->registerAssetBundle('app\\assets\\AppA...')
+#10 E:\Homework\Web\htdocs\tc2\WebService\views\layouts\main.php(13): yii\web\AssetBundle::register(Object(yii\web\View))
+#11 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\View.php(325): require('E:\\Homework\\Web...')
+#12 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('E:\\Homework\\Web...', Array)
+#13 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\Controller.php(382): yii\base\View->renderFile('E:\\Homework\\Web...', Array, Object(app\controllers\SiteController))
+#14 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\Controller.php(368): yii\base\Controller->renderContent('<div class="sit...')
+#15 E:\Homework\Web\htdocs\tc2\WebService\controllers\SiteController.php(52): yii\base\Controller->render('index')
+#16 [internal function]: app\controllers\SiteController->actionIndex()
+#17 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#18 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#19 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('', Array)
+#20 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('', Array)
+#21 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#22 E:\Homework\Web\htdocs\tc2\WebService\web\index.php(12): yii\base\Application->run()
+#23 {main}
+2015-03-15 09:14:27 [::1][-][-][info][application] $_COOKIE = [
+    'PHPSESSID' => 'g4pjjj96ubhauk4g985tacsnl7'
+    '_csrf' => '4f65108eb40fc346157840093d7fbbb57c08291cd683dc2f6eecf06fc0ebeccfa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"MKJQqIVTTsvvVQSuOFtAh9avdU3JBvTt\";}'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'D:/Program/xampp5630/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/Program/xampp5630/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.99 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => 'PHPSESSID=g4pjjj96ubhauk4g985tacsnl7; _csrf=4f65108eb40fc346157840093d7fbbb57c08291cd683dc2f6eecf06fc0ebeccfa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22MKJQqIVTTsvvVQSuOFtAh9avdU3JBvTt%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files\\Common Files\\Microsoft Shared\\Windows Live;C:\\Program Files (x86)\\Common Files\\Microsoft Shared\\Windows Live;D:\\Program\\Python34\\;D:\\Program\\Python34\\Scripts;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.0\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\Program\\Version\\Subversion\\bin;D:\\Program\\nodejs\\;D:\\Program\\ant-1.9.4\\bin;D:\\Program\\Android\\android-sdk\\platform-tools;D:\\Program\\Android\\android-sdk\\tools;D:\\Program\\Java\\jdk1.8.0_31\\bin;C:\\Program Files (x86)\\Haskell\\bin;D:\\Program\\ghc-6.6.1\\bin;D:\\Program\\Version\\Perforce\\Server;C:\\Program Files (x86)\\DBank\\ClickUp;C:\\Users\\Administrator\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\windows'
+    'COMSPEC' => 'C:\\windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY'
+    'WINDIR' => 'C:\\windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.6.3 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.6.3'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'E:/Homework/Web/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/Homework/Web/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/Homework/Web/htdocs/tc2/WebService/web/index.php'
+    'REMOTE_PORT' => '59952'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/tc2/WebService/web/index.php'
+    'SCRIPT_NAME' => '/tc2/WebService/web/index.php'
+    'PHP_SELF' => '/tc2/WebService/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1426407267.644
+    'REQUEST_TIME' => 1426407267
+]
+2015-03-15 12:58:03 [::1][-][-][error][yii\base\ErrorException:4] exception 'yii\base\ErrorException' with message 'syntax error, unexpected ']'' in E:\Homework\Web\htdocs\tc2\WebService\models\CTree.php:40
+Stack trace:
+#0 E:\Homework\Web\htdocs\tc2\WebService\models\CData.php(23): ::spl_autoload_call()
+#1 E:\Homework\Web\htdocs\tc2\WebService\models\CData.php(12): app\models\CData_CatalogOfClassNameAndCourseAndTime::getex()
+#2 E:\Homework\Web\htdocs\tc2\WebService\views\site\index.php(14): app\models\CData::get()
+#3 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\View.php(325): ::unknown()
+#4 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile()
+#5 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\View.php(149): yii\base\View->renderFile()
+#6 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\Controller.php(367): yii\base\View->render()
+#7 E:\Homework\Web\htdocs\tc2\WebService\controllers\SiteController.php(52): yii\base\Controller->render()
+#8 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\InlineAction.php(55): app\controllers\SiteController->actionIndex()
+#9 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\InlineAction.php(55): ::call_user_func_array:{E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\InlineAction.php:55}()
+#10 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams()
+#11 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction()
+#12 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction()
+#13 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest()
+#14 E:\Homework\Web\htdocs\tc2\WebService\web\index.php(12): yii\base\Application->run()
+#15 {main}
+2015-03-15 12:58:02 [::1][-][-][info][application] $_COOKIE = [
+    'PHPSESSID' => 'g4pjjj96ubhauk4g985tacsnl7'
+    '_csrf' => '4f65108eb40fc346157840093d7fbbb57c08291cd683dc2f6eecf06fc0ebeccfa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"MKJQqIVTTsvvVQSuOFtAh9avdU3JBvTt\";}'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'D:/Program/xampp5630/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/Program/xampp5630/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.99 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => 'PHPSESSID=g4pjjj96ubhauk4g985tacsnl7; _csrf=4f65108eb40fc346157840093d7fbbb57c08291cd683dc2f6eecf06fc0ebeccfa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22MKJQqIVTTsvvVQSuOFtAh9avdU3JBvTt%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files\\Common Files\\Microsoft Shared\\Windows Live;C:\\Program Files (x86)\\Common Files\\Microsoft Shared\\Windows Live;D:\\Program\\Python34\\;D:\\Program\\Python34\\Scripts;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.0\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\Program\\Version\\Subversion\\bin;D:\\Program\\nodejs\\;D:\\Program\\ant-1.9.4\\bin;D:\\Program\\Android\\android-sdk\\platform-tools;D:\\Program\\Android\\android-sdk\\tools;D:\\Program\\Java\\jdk1.8.0_31\\bin;C:\\Program Files (x86)\\Haskell\\bin;D:\\Program\\ghc-6.6.1\\bin;D:\\Program\\Version\\Perforce\\Server;C:\\Program Files (x86)\\DBank\\ClickUp;C:\\Users\\Administrator\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\windows'
+    'COMSPEC' => 'C:\\windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY'
+    'WINDIR' => 'C:\\windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.6.3 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.6.3'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'E:/Homework/Web/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/Homework/Web/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/Homework/Web/htdocs/tc2/WebService/web/index.php'
+    'REMOTE_PORT' => '6519'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/tc2/WebService/web/index.php'
+    'SCRIPT_NAME' => '/tc2/WebService/web/index.php'
+    'PHP_SELF' => '/tc2/WebService/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1426420682.987
+    'REQUEST_TIME' => 1426420682
+]
+2015-03-15 15:31:20 [::1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Use of undefined constant sub - assumed 'sub'' in E:\Homework\Web\htdocs\tc2\WebService\models\CData_CatalogOfClassNameAndCourseAndTime.php:28
+Stack trace:
+#0 E:\Homework\Web\htdocs\tc2\WebService\views\site\index.php(14): app\models\CData::get()
+#1 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\View.php(325): ::unknown()
+#2 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile()
+#3 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\View.php(149): yii\base\View->renderFile()
+#4 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\Controller.php(367): yii\base\View->render()
+#5 E:\Homework\Web\htdocs\tc2\WebService\controllers\SiteController.php(52): yii\base\Controller->render()
+#6 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\InlineAction.php(55): app\controllers\SiteController->actionIndex()
+#7 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\InlineAction.php(55): ::call_user_func_array:{E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\InlineAction.php:55}()
+#8 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams()
+#9 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction()
+#10 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction()
+#11 E:\Homework\Web\htdocs\tc2\WebService\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest()
+#12 E:\Homework\Web\htdocs\tc2\WebService\web\index.php(12): yii\base\Application->run()
+#13 {main}
+2015-03-15 15:31:19 [::1][-][-][info][application] $_COOKIE = [
+    'PHPSESSID' => 'g4pjjj96ubhauk4g985tacsnl7'
+    '_csrf' => '4f65108eb40fc346157840093d7fbbb57c08291cd683dc2f6eecf06fc0ebeccfa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"MKJQqIVTTsvvVQSuOFtAh9avdU3JBvTt\";}'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'D:/Program/xampp5630/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/Program/xampp5630/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.99 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => 'PHPSESSID=g4pjjj96ubhauk4g985tacsnl7; _csrf=4f65108eb40fc346157840093d7fbbb57c08291cd683dc2f6eecf06fc0ebeccfa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22MKJQqIVTTsvvVQSuOFtAh9avdU3JBvTt%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files\\Common Files\\Microsoft Shared\\Windows Live;C:\\Program Files (x86)\\Common Files\\Microsoft Shared\\Windows Live;D:\\Program\\Python34\\;D:\\Program\\Python34\\Scripts;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.0\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\Program\\Version\\Subversion\\bin;D:\\Program\\nodejs\\;D:\\Program\\ant-1.9.4\\bin;D:\\Program\\Android\\android-sdk\\platform-tools;D:\\Program\\Android\\android-sdk\\tools;D:\\Program\\Java\\jdk1.8.0_31\\bin;C:\\Program Files (x86)\\Haskell\\bin;D:\\Program\\ghc-6.6.1\\bin;D:\\Program\\Version\\Perforce\\Server;C:\\Program Files (x86)\\DBank\\ClickUp;C:\\Users\\Administrator\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\windows'
+    'COMSPEC' => 'C:\\windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY'
+    'WINDIR' => 'C:\\windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.6.3 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.6.3'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'E:/Homework/Web/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/Homework/Web/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/Homework/Web/htdocs/tc2/WebService/web/index.php'
+    'REMOTE_PORT' => '30108'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/tc2/WebService/web/index.php'
+    'SCRIPT_NAME' => '/tc2/WebService/web/index.php'
+    'PHP_SELF' => '/tc2/WebService/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1426429879.743
+    'REQUEST_TIME' => 1426429879
+]
