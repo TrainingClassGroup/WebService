@@ -60,8 +60,10 @@ class CData_TrainingClass extends CData {
         $sql = "SELECT *
 FROM
 	(
-		SELECT id, company, url_home, contact, text, catalog, taught, curriculum, tel, address, coordinate, fun_distance (:lng, :lat, coordinate[0], coordinate[1]) distance
-		FROM tab_training_class_db
+		SELECT cdb.id, cdb.company, cdb.url_home, cdb.contact, replace(substr(cdb.text, 1, 160),'\"','')||'...' as \"text\", cdb.catalog, cdb.taught, cdb.curriculum,
+        	   cdb.tel, cdb.address, cdb.coordinate, fun_distance (:lng, :lat, cdb.coordinate[0], cdb.coordinate[1]) distance,
+        	   cdb.logo_image
+		FROM tab_training_class_db cdb
 		WHERE
 			catalog ~ ('.*' || :catalog || '.*')
 		AND curriculum ~ ('.*' || :curriculum || '.*')
