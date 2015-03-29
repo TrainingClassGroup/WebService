@@ -31,6 +31,7 @@ class CTree {
 
             $_result[$menu['id']] = ['menu'=> $menu['menu'],
                     'paras'=> $menu['paras'],
+            		'index'=> $menu['index'],
                     'sub'=>[ ]
                     ];
 
@@ -38,6 +39,7 @@ class CTree {
 
         $_result[$menu['id']]['sub'][$submenu['id']] = ['menu'=> $submenu['menu'],
         'paras'=> $submenu['paras'],
+        'index'=> $submenu['index'],
         'sub'=> []
         ];
 
