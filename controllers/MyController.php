@@ -16,7 +16,7 @@ class MyController extends CMyController {
 			return $e;//print_r($e);
 		}
 	}
-	
+
 	private function _dynamicGetDescription(){
 	    if (isset ( $_GET ['fun'] )) {
     	    try {
@@ -45,7 +45,7 @@ class MyController extends CMyController {
 		}
 		return [];
 	}
-	
+
 	/* ------------------------------------------------------ */
 
 	public function actionUpdatetabledata() {
@@ -62,7 +62,7 @@ class MyController extends CMyController {
 	    $desc = $this->_dynamicGetDescription ();
 	    return $this->render ( 'desc', ['fun'=>$_GET ['fun'], 'desc' => $desc] );
 	}
-	
+
 	public function actionData() {
 		$data = $this->_dynamicGetData ();
 		return $data;
@@ -96,7 +96,7 @@ class MyController extends CMyController {
 			echo $context;
 		}
 	}
-	
+
 	public function actionAbout()
 	{
 	    return $this->render('about');

@@ -65,7 +65,8 @@ $(function() {
     	url: "<?php echo Yii::$app->urlManager->createUrl('my/data'); ?>",
     	data: {data: '<?= $fun?>', paras:{<?= $example_paras?> type:'json'}},
     	success: function (result) {
-    		$('#example').html("结果实例：\n"+JsonUti.convertToString(eval('('+result+')')));
+    		//$('#example').text(result);
+    		$('#example').html(JsonUti.convertToString(eval('('+result+')')));
     	}
     });
 });

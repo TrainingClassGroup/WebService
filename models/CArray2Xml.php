@@ -75,8 +75,9 @@ class CArray2Xml {
                     $child = $this->doc->createAttribute( $key );
                 }
             }
+
             // if(is_array($value)&&count($value)>0) {
-            if( is_array( $value ) ){
+            if( is_array( $value ) || is_object($value)){
                 $this->transform( $value, $deep, $child, $item );
             }
             else{
@@ -91,7 +92,7 @@ class CArray2Xml {
                     }
                 }
             }
-            
+
             $root->appendChild( $child ); // 添加到父层节点
         }
     }
@@ -103,8 +104,8 @@ class CArray2Xml {
      * @param
      *            null
      * @return simpleXML xml 生成的simpleXML
-     *        
-     *        
+     *
+     *
      */
     public function domToSimple(){
         return simplexml_import_dom( $this->doc );
@@ -135,7 +136,7 @@ class CArray2Xml {
      * @param String $path
      *            保存路径，保存在该路径下的cache文件夹中，默认为根路径
      * @return Boolean result 是否生成成功
-     *        
+     *
      */
     public function saveAs( $name, $path = "" ){
         if( $path == '' )
@@ -149,7 +150,7 @@ class CArray2Xml {
         $xml = ob_get_contents();
         ob_end_clean();
         $fileName = $path . $name;
-        
+
         $file = fopen( $fileName, 'w+' ); // 打开文件
         if( $this->bom == true ){
             fwrite( $file, "/xEF/xBB/xBF" );
