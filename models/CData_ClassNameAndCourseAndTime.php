@@ -14,8 +14,8 @@ class CData_ClassNameAndCourseAndTime extends CData {
      */
     protected static function getex( $paras = null ){
         $key=__METHOD__.":".serialize($paras);
-        //$data = CSystemCache::get($key);
-        //if(!is_null($data)) return $data;
+        $data = CSystemCache::get($key);
+        if(!is_null($data)) return $data;
 
         $sql = 'SELECT cn."id" class_name_id, cc."id" course_id, cn.class_name,	cc.course, cn.index cn_index, cc.index cc_index
 FROM tab_training_class_classname cn
@@ -40,7 +40,7 @@ LEFT JOIN (
         		['id'=>4, 'menu'=>"晚上", 'paras'=>'', 'index'=>4, 'sub'=>[] ]
         ]];
 
-        //CSystemCache::set($key, $data, 60*60);
+        CSystemCache::set($key, $data, 60*60);
 
         return $data;
     }

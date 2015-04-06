@@ -2,7 +2,6 @@
 
 namespace app\models;
 
-use yii\base\Object;
 class CData implements IData {
 
     public static function description(){
