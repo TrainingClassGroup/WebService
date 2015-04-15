@@ -65,8 +65,8 @@ class CData_TrainingClass extends CData {
 	(
 		SELECT cdb.id, cdb.company, cdb.url_home, cdb.contact, replace(substr(cdb.text, 1, 160),'\"','')||'...' as \"text\", cdb.catalog, cdb.taught, cdb.curriculum,
         	   cdb.tel, cdb.address, cdb.coordinate, fun_distance (:lng, :lat, cdb.coordinate[0], cdb.coordinate[1]) distance,
-        	   cdb.logo_image
-		FROM tab_training_class_db cdb
+        	   cdb.logo_image, img.imagedata
+		FROM tab_training_class_db cdb LEFT JOIN tab_training_class_image img on cdb.logo_image = img.id
 		WHERE cdb.catalog ~ ('.*' || :catalog || '.*')
 		  AND cdb.curriculum ~ ('.*' || :curriculum || '.*')
           AND EXISTS (SELECT 1 FROM tab_training_class_teacher ct, tab_training_class_schedule cs, tab_training_class_course cc
@@ -90,7 +90,7 @@ LIMIT :rownum OFFSET :page";
         	$paras['schedule'] = '';
         }
         else if($paras['schedule']=="全天"){
-        	$paras['schedule'] = '全';
+        	$paras['schedule'] = '';
         }
         else if($paras['schedule']=="上午"){
         	$paras['schedule'] = '上';
