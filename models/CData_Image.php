@@ -12,18 +12,30 @@ class CData_Image extends CData {
                                         'desc' => '图片ID,可以是逗号串，查询多个图片',
                                         'isnull' => false,
                                         'type' => 'numeric',
-                                        'example' => '\'1,2\'' ] ]
+                                        'example' => '\'1,2\'' ],
+                                     [
+                                        'para' => 'isthumbnail',
+                                        'desc' => '是否是缩略图，1/0',
+                                        'isnull' => false,
+                                        'type' => 'numeric',
+                                        'example' => '0' ]  ]
                ];
     }
     /*
      * (non-PHPdoc) @see \app\models\CData::getx()
      */
     protected static function getex( $paras = null ){
-        $key = __METHOD__ . ":" . serialize( [ 'id' => $paras['id'] ] );
+        $key = __METHOD__ . ":" . serialize( $paras );
         $data = CSystemCache::get( $key );
         if( !is_null( $data ) ) return $data;
 
-        $sql = "SELECT id,imagetype, imagedata, imageurl FROM tab_training_class_image WHERE id in (".$paras['id'].")";
+        $sql="";
+        if($paras['isthumbnail']=='0' || $paras['isthumbnail']==0){
+        	$sql = "SELECT id,imagetype, imagedata, imageurl FROM tab_training_class_image WHERE id in (".$paras['id'].")";
+        }
+        else{
+        	$sql = "SELECT id,imagetype, imagedata, imageurl FROM tab_training_class_image_thumbnail WHERE id in (".$paras['id'].")";
+        }
 
         $command = CDB::getConnection()->createCommand( $sql );
         //$command->bindParam( ':id', $paras['id'], \PDO::PARAM_STR ); // 图片ID

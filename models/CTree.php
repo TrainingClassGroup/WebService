@@ -12,7 +12,7 @@ class CTree {
     public static function menuTree(&$result, $idPath, $menu, $submenu){
         $_result = &$result;
 
-        $paths = split("/", $idPath);
+        $paths = explode("/", $idPath);
         $pathsNum = count($paths);
         // search path
         for($p=0;$p<$pathsNum;$p++){
