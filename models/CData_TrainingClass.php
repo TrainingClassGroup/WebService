@@ -76,7 +76,7 @@ class CData_TrainingClass extends CData {
         	    cdb.tel, cdb.address, cdb.coordinate,*/
         		(CASE WHEN tcc.cnt ISNULL THEN 0 ELSE tcc.cnt END) comment_cnt,
                 (CASE WHEN tv.cnt ISNULL THEN 0 ELSE tv.cnt END) reservation_cnt,
-        		fun_distance (:lng, :lat, cdb.coordinate[0], cdb.coordinate[1]) distance,
+        		fun_distance (:lat, :lng, cdb.coordinate[1], cdb.coordinate[0]) distance,
         	    cdb.logo_image /* , img.imagedata */
 		FROM tab_training_class_db cdb
         	/* LEFT JOIN tab_training_class_image img ON cdb.logo_image = img.id */
