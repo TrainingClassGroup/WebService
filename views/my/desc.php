@@ -59,6 +59,7 @@
 <pre class='myCode' id="example">
 </pre>
 
+<?php if(!isset($noexample) || $noexample==false){?>
 <script type="text/javascript">
 $(function() {
 
@@ -73,6 +74,6 @@ $(function() {
     });
 });
 </script>
-
+<?php }?>
 
 

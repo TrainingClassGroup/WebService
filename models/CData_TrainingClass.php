@@ -98,8 +98,8 @@ ORDER BY cc.distance ASC ".((isset($paras['order']) && !empty($paras['order'])) 
 
         if( !isset( $paras['rownum'] ) || is_null( $paras['rownum'] ) ) $paras['rownum'] = 10;
         if( !isset( $paras['page'] ) || is_null( $paras['page'] ) ) $paras['page'] = 0;
-        if($paras['catalog'] == "年级") $paras['catalog']='';
-        if($paras['curriculum'] == "课程") $paras['curriculum']='';
+        if($paras['catalog'] == "年级" || empty($paras['catalog'])) $paras['catalog']='';
+        if($paras['curriculum'] == "课程" || empty($paras['curriculum'])) $paras['curriculum']='';
         if( !isset( $paras['schedule'] ) || is_null( $paras['schedule']) || $paras['schedule'] == "授时" ){
         	$paras['schedule'] = '^.*/.*/.*$';
         }

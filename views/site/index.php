@@ -4,7 +4,7 @@ $this->title = 'TC';
 ?>
 <div class="site-index">
 
-<?php 
+<?php
 function tree($directory){
     $mydir = dir($directory);
     while($file = $mydir->read()){
@@ -21,8 +21,19 @@ function tree($directory){
                 }
 ?>
                 <li><a href="<?php echo Yii::$app->urlManager->createUrl(['my/desc', 'fun'=>'CData_'.$matches[1]]); ?>"><?= 'CData_'.$matches[1]?>&nbsp;&nbsp;&nbsp;&nbsp;//<?= $name?></a></li><br>
-<?php 
+<?php
             }
+            else if(preg_match("/CAction_(.*)\.php/i", $file, $matches)){
+				require_once $directory . 'CAction_'.$matches[1].'.php';
+				$name="";
+				try {
+					$name = call_user_func ( 'app\\models\\' . 'CAction_'.$matches[1] . '::description', null )['description'];
+				} catch ( \Exception $e ) {
+				}
+?>
+                <li><a href="<?php echo Yii::$app->urlManager->createUrl(['my/desc', 'fun'=>'CAction_'.$matches[1], 'noexample'=>true]); ?>"><?= 'CAction_'.$matches[1]?>&nbsp;&nbsp;&nbsp;&nbsp;//<?= $name?></a></li><br>
+<?php
+			}
         }
     }
    	$mydir->close();
@@ -37,8 +48,8 @@ echo "</ul>\n";
     <div class="body-content">
 
     </div>
-    
-    
+
+
     <script type="text/javascript">
     $(function() {
 
@@ -74,5 +85,5 @@ echo "</ul>\n";
     	 */
 	});
     </script>
-    
+
 </div>
