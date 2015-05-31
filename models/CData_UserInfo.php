@@ -12,7 +12,7 @@ class CData_UserInfo extends CData {
                                         'desc' => '用户ID',
                                         'isnull' => false,
                                         'type' => 'string',
-                                        'example' => '3q454756ue' ] ]
+                                        'example' => '"3q454756ue"' ] ]
                ];
     }
     /*

@@ -25,6 +25,8 @@ class CAction_Regist implements IAction {
 		$command->bindParam( ':uuid', $paras['uuid'], \PDO::PARAM_STR ); // 用户UUID
 
 		$command->execute();
+
+		return CData_UserInfo::get($paras);
 	}
 
 }

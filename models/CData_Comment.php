@@ -34,26 +34,26 @@ class CData_Comment extends CData {
         $key = __METHOD__ . ":" . serialize( $paras );
         $data = CSystemCache::get( $key );
         if( !is_null( $data ) ) return $data;
-       
-        $sql = "SELECT com.\"comment\", com.\"timestamp\", (case when usr.username IS NULL then usr.tel else usr.username end) username
+
+        $sql = "SELECT com.\"comment\", com.\"timestamp\", (case when usr.username IS NULL then case when usr.tel IS NULL then usr.uuid else usr.tel end else usr.username end) username
         FROM tab_training_class_comment com, tab_training_class_user usr
         WHERE	com.company_id = :company_id
         AND com.user_id = usr.id
 ORDER BY \"timestamp\" DESC
 LIMIT :rownum OFFSET :page";
-        
+
         if( !isset( $paras['rownum'] ) || is_null( $paras['rownum'] ) ) $paras['rownum'] = 10;
         if( !isset( $paras['page'] ) || is_null( $paras['page'] ) ) $paras['page'] = 0;
-        
+
         $command = CDB::getConnection()->createCommand( $sql );
         $command->bindParam( ':company_id', $paras['company_id'], \PDO::PARAM_INT ); // 培训班ID
         $command->bindParam( ':rownum', $paras['rownum'], \PDO::PARAM_INT ); // 行数
         $command->bindParam( ':page', $paras['page'], \PDO::PARAM_INT ); // 页数
-        
+
         $data = $command->queryAll();
-        
+
         CSystemCache::set( $key, $data, 10 * 60 );
-        
+
         return $data;
     }
 }
