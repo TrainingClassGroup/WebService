@@ -1,7 +1,7 @@
 <?php
 namespace app\models;
 
-class CData_Like implements CData {
+class CData_Like extends CData {
 
 	public static function description(){
 		return [
@@ -12,7 +12,7 @@ class CData_Like implements CData {
 								'desc' => '用户ID',
 								'isnull' => false,
 								'type' => 'numeric',
-								'example' => '3' ] ]
+								'example' => '13' ] ]
 				];
 	}
 	/* (non-PHPdoc)
